@@ -23,3 +23,8 @@ jobs:
               run: chown -R builder:builder systemd-chromiumos
             - name: Build systemd-chromiumos as builder
               run: sudo -u builder bash -c "cd systemd-chromiumos && makepkg -s --noconfirm --skippgpcheck && ls"
+            - name: Upload artifacts
+              uses: actions/upload-artifact@v3
+              with:
+                name: systemd-chromiumos-packages
+                path: systemd-chromiumos/*.tar.zst
