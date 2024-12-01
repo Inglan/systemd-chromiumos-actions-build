@@ -13,8 +13,8 @@ jobs:
         runs-on: ubuntu-latest
         container: archlinux
         steps:
-            - name: Update packages
-              run: pacman -Syu --noconfirm
+            - name: Update packages and install deps
+              run: pacman -Syu --noconfirm && pacman -S --noconfirm base-devel git
             - name: Clone systemd-chromiumos
               run: git clone https://aur.archlinux.org/systemd-chromiumos.git
             - name: Build systemd-chromiumos
