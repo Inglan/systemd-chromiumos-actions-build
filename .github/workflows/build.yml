@@ -1,0 +1,21 @@
+name: Build
+
+on:
+    push:
+        branches:
+            - main
+    pull_request:
+        branches:
+            - main
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        container: archlinux/base
+        steps:
+            - name: Update packages
+              run: pacman -Syu --noconfirm
+            - name: Clone systemd-chromiumos
+              run: git clone https://aur.archlinux.org/systemd-chromiumos.git
+            - name: Build systemd-chromiumos
+              run: cd systemd-chromiumos && makepkg -s --noconfirm && ls
