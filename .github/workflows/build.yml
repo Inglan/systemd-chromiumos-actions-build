@@ -14,7 +14,7 @@ jobs:
         container: archlinux
         steps:
             - name: Update packages and install deps
-              run: pacman -Syu --noconfirm && pacman -S --noconfirm base-devel git
+              run: pacman -Syu --noconfirm && pacman -S --noconfirm base-devel git docbook-xsl gperf intltool libmicrohttpd libxslt python-jinja python-lxml quota-tools meson kexec-tools libxkbcommon bash-completion libfido2 rsync bpf clang llvm python-pyelftools libpwquality qrencode lib32-gcc-libs python-pefile
             - name: Clone systemd-chromiumos
               run: git clone https://aur.archlinux.org/systemd-chromiumos.git
             - name: Create a new user
