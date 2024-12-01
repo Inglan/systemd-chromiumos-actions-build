@@ -17,5 +17,9 @@ jobs:
               run: pacman -Syu --noconfirm && pacman -S --noconfirm base-devel git
             - name: Clone systemd-chromiumos
               run: git clone https://aur.archlinux.org/systemd-chromiumos.git
-            - name: Build systemd-chromiumos
-              run: cd systemd-chromiumos && makepkg -s --noconfirm && ls
+            - name: Create a new user
+              run: useradd -m builder
+            - name: Set permissions
+              run: chown -R builder:builder systemd-chromiumos
+            - name: Build systemd-chromiumos as builder
+              run: sudo -u builder bash -c "cd systemd-chromiumos && makepkg -s --noconfirm && ls"
