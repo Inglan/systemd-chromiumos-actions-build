@@ -11,7 +11,7 @@ on:
 jobs:
     build:
         runs-on: ubuntu-latest
-        container: archlinux/base
+        container: archlinux
         steps:
             - name: Update packages
               run: pacman -Syu --noconfirm
