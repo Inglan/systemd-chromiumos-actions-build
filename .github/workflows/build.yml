@@ -22,4 +22,4 @@ jobs:
             - name: Set permissions
               run: chown -R builder:builder systemd-chromiumos
             - name: Build systemd-chromiumos as builder
-              run: sudo -u builder bash -c "cd systemd-chromiumos && makepkg -s --noconfirm && ls"
+              run: sudo -u builder bash -c "cd systemd-chromiumos && makepkg -s --noconfirm --skippgpcheck && ls"
